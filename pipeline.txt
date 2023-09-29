@@ -1,0 +1,1 @@
+This file is basically for pipeline and stored workspace files.
