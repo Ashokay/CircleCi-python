@@ -1,0 +1,33 @@
+repositories:
+  - name: CircleCi-python
+    url: https://github.com/Ashokay/CircleCi-python.git
+    branch: main
+
+  - name: SVTV
+    url: https://github.com/Ashokay/SVTV.git
+    branch: master
+
+merge_strategy: 
+  # Specify the merge strategy you want to use, e.g., 'squash', 'merge', 'rebase'.
+  strategy: squash
+
+instructions:
+  - step: 1
+    action: clone
+    repository: CircleCi-python
+    path: git_workspace/CircleCi-python
+
+  - step: 2
+    action: clone
+    repository: SVTV
+    path: git_workspace/CircleCi-python/SVTV
+
+  - step: 3
+    action: merge
+    source: git_workspace/CircleCi-python/SVTV
+    destination: git_workspace/CircleCi-python
+    strategy: squash
+
+  - step: 4
+    action: push
+    repository: CircleCi-python
